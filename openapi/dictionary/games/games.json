@@ -1,0 +1,54 @@
+{
+  "get": {
+    "tags": ["Games"],
+    "summary": "Games list",
+    "parameters": [
+      {
+        "in": "query",
+        "name": "filters[offer_type]",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": ["items", "currency", "accounts"]
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Page not found"
+      }
+    }
+  }
+}

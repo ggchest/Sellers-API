@@ -1,0 +1,24 @@
+{
+  "put": {
+    "tags": ["Sellers Offers"],
+    "summary": "Activate/Deactivate Offer",
+    "responses": {
+      "200": {
+        "description": "Success"
+      },
+      "404": {
+        "description": "Bad request"
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/schemas-common.json#/components/schemas/403"
+            }
+          }
+        }
+      }
+    }
+  }
+}

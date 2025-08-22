@@ -1,0 +1,52 @@
+{
+  "put": {
+    "tags": ["Sellers Offers"],
+    "summary": "Update offer price",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "price": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 19,
+                "example": "66.32",
+                "pattern": "^[0-9]{1,16}(\\.[0-9]{1,2})?$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success"
+      },
+      "400": {
+        "description": "Bad request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/schemas-common.json#/components/schemas/400"
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Page not found"
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/schemas-common.json#/components/schemas/403"
+            }
+          }
+        }
+      }
+    }
+  }
+}

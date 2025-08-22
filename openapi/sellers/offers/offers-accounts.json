@@ -1,0 +1,143 @@
+{
+  "post": {
+    "tags": ["Sellers Offers"],
+    "summary": "Create new accounts offer",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "required": [
+              "game_id",
+              "title",
+              "description",
+              "price",
+              "delivery_method",
+              "delivery_time",
+              "qty_total",
+              "qty_min",
+              "attributes",
+              "accounts"
+            ],
+            "properties": {
+              "game_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "price": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 19,
+                "example": "66.32",
+                "pattern": "^[0-9]{1,16}(\\.[0-9]{1,2})?$"
+              },
+              "delivery_method": {
+                "type": "string",
+                "enum": ["manual", "auto"]
+              },
+              "delivery_time": {
+                "type": "string"
+              },
+              "qty_total": {
+                "type": "integer"
+              },
+              "qty_min": {
+                "type": "integer"
+              },
+              "attributes": {
+                "type": "array",
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "option_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "accounts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "login": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "password": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "email_login": {
+                      "type": ["string", "null"]
+                    },
+                    "email_password": {
+                      "type": ["string", "null"]
+                    },
+                    "description": {
+                      "type": ["string", "null"]
+                    }
+                  },
+                  "required": ["login", "password"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Bad request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/schemas-common.json#/components/schemas/400"
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Unprocessable Entity",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/schemas-common.json#/components/schemas/422"
+            }
+          }
+        }
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/schemas-common.json#/components/schemas/403"
+            }
+          }
+        }
+      }
+    }
+  }
+}

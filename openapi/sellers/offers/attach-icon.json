@@ -1,0 +1,53 @@
+{
+  "post": {
+    "tags": ["Sellers Offers"],
+    "summary": "Attach icon to the seller`s offer",
+    "requestBody": {
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "required": ["icon"],
+            "properties": {
+              "icon": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "file_id": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Bad request"
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/schemas-common.json#/components/schemas/403"
+            }
+          }
+        }
+      }
+    }
+  }
+}

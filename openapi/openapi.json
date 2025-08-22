@@ -1,0 +1,74 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Seller API V1",
+    "description": "Seller API",
+    "version": "1.0"
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://sellerapi.ggchest.com"
+    }
+  ],
+  "paths": {
+    "/v1/games": {
+      "$ref": "dictionary/games/games.json"
+    },
+    "/v1/games/{id}/{offerType}/attributes": {
+      "$ref": "offer-attribute/offer-attributes.json"
+    },
+    "/v1/games/{id}/currency": {
+      "$ref": "dictionary/games-currencies/currency-by-game.json"
+    },
+    "/v1/offers": {
+      "$ref": "sellers/offers/offers.json"
+    },
+    "/v1/offers/accounts": {
+      "$ref": "sellers/offers/offers-accounts.json"
+    },
+    "/v1/offers/currency": {
+      "$ref": "sellers/offers/offers-currency.json"
+    },
+    "/v1/offers/items": {
+      "$ref": "sellers/offers/offers-items.json"
+    },
+    "/v1/offers/{id}": {
+      "$ref": "sellers/offers/offers-id.json"
+    },
+    "/v1/offers/accounts/{id}": {
+      "$ref": "sellers/offers/offers-accounts-id.json"
+    },
+    "/v1/offers/items/{id}": {
+      "$ref": "sellers/offers/offers-items-id.json"
+    },
+    "/v1/offers/currency/{id}": {
+      "$ref": "sellers/offers/offers-currency-id.json"
+    },
+    "/v1/offers/{id}/toggle": {
+      "$ref": "sellers/offers/offers-toggle.json"
+    },
+    "/v1/offers/{id}/price": {
+      "$ref": "sellers/offers/update-offer-price.json"
+    },
+    "/v1/offers/{id}/icon": {
+      "$ref": "sellers/offers/attach-icon.json"
+    },
+    "/v1/offers/{offerId}/icon/{iconId}": {
+      "$ref": "sellers/offers/delete-offer-icon.json"
+    }
+  }
+}

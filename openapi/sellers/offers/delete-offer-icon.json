@@ -1,0 +1,42 @@
+{
+  "delete": {
+    "tags": ["Sellers Offers"],
+    "summary": "Delete offer icon",
+    "parameters": [
+      {
+        "name": "offerId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "iconId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Success"
+      },
+      "404": {
+        "description": "Page not found"
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/schemas-common.json#/components/schemas/403"
+            }
+          }
+        }
+      }
+    }
+  }
+}

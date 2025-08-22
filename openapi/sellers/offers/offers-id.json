@@ -1,0 +1,183 @@
+{
+  "get": {
+    "tags": ["Sellers Offers"],
+    "summary": "View offer",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "offer_type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "delivery_time": {
+                  "type": "string"
+                },
+                "delivery_method": {
+                  "type": "string"
+                },
+                "qty_total": {
+                  "type": "integer"
+                },
+                "qty_min": {
+                  "type": "integer"
+                },
+                "game_id": {
+                  "type": "string"
+                },
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "attributes": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "attribute_name": {
+                        "type": "string"
+                      },
+                      "option_id": {
+                        "type": "string"
+                      },
+                      "option_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "extra_properties": {
+                  "type": "object",
+                  "properties": {
+                    "accounts": {
+                      "type": ["array", "null"],
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": ["string", "null"]
+                          },
+                          "login": {
+                            "type": ["string", "null"]
+                          },
+                          "password": {
+                            "type": ["string", "null"]
+                          },
+                          "email_login": {
+                            "type": ["string", "null"]
+                          },
+                          "email_password": {
+                            "type": ["string", "null"]
+                          }
+                        }
+                      }
+                    },
+                    "game_currency": {
+                      "type": ["object", "null"],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "nominal": {
+                          "type": "string"
+                        },
+                        "icon": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Page not found"
+      }
+    }
+  },
+  "delete": {
+    "tags": ["Sellers Offers"],
+    "summary": "Delete Offer",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Success"
+      },
+      "404": {
+        "description": "Page not found"
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/schemas-common.json#/components/schemas/403"
+            }
+          }
+        }
+      }
+    }
+  }
+}

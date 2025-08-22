@@ -1,0 +1,96 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Gamedune API V1",
+    "description": "Awesome platform",
+    "version": "1.0"
+  },
+  "components": {
+    "schemas": {
+      "pagination": {
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "total_count": {
+                "type": "integer"
+              },
+              "page_count": {
+                "type": "integer"
+              },
+              "page": {
+                "type": "integer"
+              },
+              "per_page": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "property": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "403": {
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "422": {
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": []
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "page": {
+        "in": "query",
+        "name": "pagination[page]",
+        "required": false,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "per_page": {
+        "in": "query",
+        "name": "pagination[per_page]",
+        "required": false,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "direction": {
+        "in": "query",
+        "name": "sort[direction]",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": ["asc", "desc"]
+        }
+      }
+    }
+  },
+  "paths": {}
+}

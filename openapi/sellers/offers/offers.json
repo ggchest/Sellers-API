@@ -1,0 +1,171 @@
+{
+  "get": {
+    "tags": ["Sellers Offers"],
+    "summary": "Offers list",
+    "parameters": [
+      {
+        "$ref": "../../schemas/schemas-common.json#/components/parameters/page"
+      },
+      {
+        "$ref": "../../schemas/schemas-common.json#/components/parameters/per_page"
+      },
+      {
+        "in": "query",
+        "name": "filters[status]",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": ["active", "draft", "deleted"]
+        }
+      },
+      {
+        "in": "query",
+        "name": "filters[offer_type]",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": ["accounts", "items", "currency"]
+        }
+      },
+      {
+        "in": "query",
+        "name": "filters[game_id]",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "offer_type": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "price": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "delivery_method": {
+                            "type": "string"
+                          },
+                          "delivery_time": {
+                            "type": "string"
+                          },
+                          "qty_total": {
+                            "type": "string"
+                          },
+                          "qty_min": {
+                            "type": "string"
+                          },
+                          "page_slug": {
+                            "type": "string"
+                          },
+                          "icon": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "path": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "game_id": {
+                            "type": "string"
+                          },
+                          "game_name": {
+                            "type": "string"
+                          },
+                          "attributes": {
+                            "type": "array",
+                            "items": {
+                              "properties": {
+                                "attribute_id": {
+                                  "type": "string"
+                                },
+                                "attribute_name": {
+                                  "type": "string"
+                                },
+                                "option_id": {
+                                  "type": "string"
+                                },
+                                "option_name": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "expired_at": {
+                            "type": "string"
+                          },
+                          "extra_properties": {
+                            "type": "object",
+                            "properties": {
+                              "game_currency": {
+                                "type": ["object", "null"],
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "nominal": {
+                                    "type": "string"
+                                  },
+                                  "icon": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      },
+                                      "path": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "$ref": "../../schemas/schemas-common.json#/components/schemas/pagination"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
