@@ -194,7 +194,7 @@ Retrieve all offers for the authenticated seller with pagination support.
 
 **Example Request:**
 ```bash
-curl -X GET "https://sellerapi.ggchest.com/v1/offers?pagination[page]=1&pagination[per_page]=10&filters[status]=active&filters[offer_type]=currency" \
+curl -X GET "https://sellerapi.ggchest.com/v1/offers?pagination[page]=1&pagination[per_page]=10&filters[status]=ACTIVE&filters[offer_type]=currency" \
   -H "X-API-KEY: your_api_key_here"
 ```
 
