@@ -859,7 +859,7 @@ curl -X PUT "https://sellerapi.ggchest.com/v1/offers/items/01985a39-8d7c-c2b0-f5
 #### Activate and Deactivate Offer
 
 ```http
-POST /v1/offers/{id}/toggle
+PUT /v1/offers/{id}/toggle
 ```
 
 This API endpoint enables or disables your offer. You don’t need to send any data, just send an empty request. If the offer was active, the request will deactivate it, and vice versa, if the offer was paused, the request will activate it. If you receive a 200 response, it means everything is fine. The response body will be empty.
