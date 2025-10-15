@@ -5,11 +5,9 @@
 A comprehensive RESTful API for managing game offers, accounts, items, and currencies on the GGChest platform.
 
 
-API Update 2025-10-15, v1.0.1:
-
-	- Added endpoints for bulk offer deletion (`DELETE /v1/offers`) - available from 17 October 2025
-	
-	- Added endpoints for bulk activation and deactivation of offers (`PUT /v1/offers/activate` and `PUT /v1/offers/draft`) - available from 17 October 2025
+**API Update 2025-10-15, v1.0.1:**
+ - Added endpoints for bulk offer deletion ( `DELETE /v1/offers` ) - available from 17 October 2025
+ - Added endpoints for bulk activation and deactivation of offers ( `PUT /v1/offers/activate` and `PUT /v1/offers/draft` ) - available from 17 October 2025
   
 
 ## 📋 Table of Contents
