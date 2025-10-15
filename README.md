@@ -1,8 +1,13 @@
 # 🎮 GGChest Seller API
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)
 
 A comprehensive RESTful API for managing game offers, accounts, items, and currencies on the GGChest platform.
+
+API Update 2025-10-15, v1.0.1
+	•	Added endpoints for bulk offer deletion (`DELETE /v1/offers`)
+	•	Added endpoints for bulk activation and deactivation of offers (`PUT /v1/offers/activate` and `PUT /v1/offers/draft`)
+  
 
 ## 📋 Table of Contents
 
@@ -368,6 +373,28 @@ curl -X DELETE "https://sellerapi.ggchest.com/v1/offers/01985a36-7e5a-ab2f-fd39-
 ```json
 {}
 ```
+
+#### Bulk offer deletion
+
+```http
+DELETE /v1/offers
+```
+**Body Request**
+
+```json
+{
+    "offers_ids": [
+        "01997b76-07ca-7ce2-a5bb-7124bdf09cd6",
+        "01997b76-514b-712f-a326-dbf46d00b082"
+    ]
+}
+```
+
+Validation rules:
+
+1.	The list of offer_ids must contain unique UUID strings (otherwise, a 400 response code is expected).
+2.	The UUID array must not be empty — at least one UUID must be provided in the array.
+3.	The maximum number of UUIDs that can be passed in the array is 100. If exceeded, a 400 response code will be returned.
 
 #### Create New Account Offer
 
