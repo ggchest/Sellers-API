@@ -4,9 +4,9 @@
 
 A comprehensive RESTful API for managing game offers, accounts, items, and currencies on the GGChest platform.
 
-API Update 2025-10-15, v1.0.1
-	•	Added endpoints for bulk offer deletion (`DELETE /v1/offers`)
-	•	Added endpoints for bulk activation and deactivation of offers (`PUT /v1/offers/activate` and `PUT /v1/offers/draft`)
+API Update 2025-10-15, v1.0.1:
+	- Added endpoints for bulk offer deletion (`DELETE /v1/offers`) - available from 17 October 2025
+	- Added endpoints for bulk activation and deactivation of offers (`PUT /v1/offers/activate` and `PUT /v1/offers/draft`) - available from 17 October 2025
   
 
 ## 📋 Table of Contents
@@ -390,7 +390,7 @@ DELETE /v1/offers
 }
 ```
 
-Validation rules:
+**Validation rules:**
 
 1.	The list of offer_ids must contain unique UUID strings (otherwise, a 400 response code is expected).
 2.	The UUID array must not be empty — at least one UUID must be provided in the array.
@@ -903,6 +903,49 @@ This API endpoint enables or disables your offer. You don’t need to send any d
 ```json
 {}
 ```
+
+#### Bulk activation offers
+
+```http
+PUT /v1/offers/activate
+```
+**Request Body:**
+
+```json
+{
+    "offers_ids": [
+        "01997b76-07ca-7ce2-a5bb-7124bdf09cd6",
+        "01997b76-514b-712f-a326-dbf46d00b082"
+    ]
+}
+```
+**Validation rules:**
+
+1.	The list of offer_ids must contain unique UUID strings (otherwise, a 400 response code is expected).
+2.	The UUID array must not be empty — at least one UUID must be provided in the array.
+3.	The maximum number of UUIDs that can be passed in the array is 100. If exceeded, a 400 response code will be returned.
+
+#### Bulk deactivation / draft offers
+
+```http
+PUT /v1/offers/draft
+```
+
+**Request Body:**
+
+```json
+{
+    "offers_ids": [
+        "01997b76-07ca-7ce2-a5bb-7124bdf09cd6",
+        "01997b76-514b-712f-a326-dbf46d00b082"
+    ]
+}
+```
+**Validation rules:**
+
+1.	The list of offer_ids must contain unique UUID strings (otherwise, a 400 response code is expected).
+2.	The UUID array must not be empty — at least one UUID must be provided in the array.
+3.	The maximum number of UUIDs that can be passed in the array is 100. If exceeded, a 400 response code will be returned.
 
 #### Update Offer Price
 
